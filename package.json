@@ -1,0 +1,17 @@
+{
+  "name": "score-api",
+  "version": "1.0.0",
+  "main": "api.mjs",
+  "type":"module",
+  "scripts": {
+    "start": "node api.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2"
+  }
+}

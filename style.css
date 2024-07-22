@@ -1,0 +1,39 @@
+body {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #474141;
+}
+header {
+    background-color: #474141;
+    color: #4d4747;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+main {
+   padding: 1rem;
+}
+
+footer {
+    background-color: #333;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.match {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 5px;
+}
+
+.match h2 {
+    margin: 0;
+}
