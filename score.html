@@ -7,8 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Live Soccer Scores Updates</h1>
-    <div id="score-updates"></div>
+    <header>
+        <h1>Live Soccer Scores Updates</h1>
+    </header>
+    <main>
+        <div id="score-updates"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Soccer Score Updates</p>
+    </footer>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -17,11 +24,15 @@
             const fetchScores = async () => {
                 try {
                     const response = await fetch('http://localhost:3000/scores');
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
                     const data = await response.json();
 
                     displayScores(data);
                 } catch (error) {
                     console.error('Error fetching scores:', error);
+                    scoreUpdates.innerHTML = '<p>Error fetching scores. Please try again later.</p>';
                 }
             };
 
@@ -35,7 +46,7 @@
                     matchElement.innerHTML = `
                         <h2>${match.homeTeam} vs ${match.awayTeam}</h2>
                         <p>Score: ${match.homeScore} - ${match.awayScore}</p>
-                        <p>Time: ${match.time}</p>
+                        <p>Time: ${new Date(match.time).toLocaleString()}</p>
                     `;
 
                     scoreUpdates.appendChild(matchElement);
@@ -46,12 +57,5 @@
             setInterval(fetchScores, 60000); // Refresh every 60 seconds
         });
     </script>
-    <footer>
-        <p>&copy; 2024 Soccer Score Updates</p>
-    </footer>
 </body>
 </html>
-
-
-
-

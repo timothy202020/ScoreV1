@@ -12,6 +12,11 @@ app.get('/scores', async (req, res) => {
         const response = await fetch(API_URL, {
             headers: { 'X-Auth-Token': API_KEY }
         });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
 
         const matches = data.matches.map(match => ({
